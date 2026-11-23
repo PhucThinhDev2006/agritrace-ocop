@@ -424,3 +424,23 @@ FodyWeavers.xsd
 
 # Official VS Code C# Dev Kit Extension exclusion
 #*.lscache
+@"
+# .NET / C#
+bin/
+obj/
+.vs/
+.idea/
+*.user
+*.suo
+TestResults/
+coverage-report/
+**/coverage.cobertura.xml
+# React / Node
+node_modules/
+dist/
+.vite/
+# Bí mật & Môi trường (TUYỆT ĐỐI KHÔNG COMMIT .env)
+.env
+.env.local
+appsettings.Development.json
+"@ | Out-File -FilePath .gitignore -Encoding utf8
