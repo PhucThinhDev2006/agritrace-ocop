@@ -1,10 +1,10 @@
 namespace AgriTrace.Domain.Exceptions;
 
-/// <sumary> Lỗi vi phạm quy tắc nghiệp vụ (map 400 Bad Request) </sumary>
-public sealed class BusinessRuleExceptions(string message) : Exception(message);
+/// <summary> Lỗi vi phạm quy tắc nghiệp vụ (map 400 Bad Request) </summary>
+public sealed class BusinessRuleException(string message) : Exception(message);
 
-///<sumary> Không tìm thấy tài nguyên (map 404 Not Found) </sumary>
+///<summary> Không tìm thấy tài nguyên (map 404 Not Found) </summary>
 public sealed class NotFoundException(string message) : Exception(message);
 
-/// <sumary> Xung đột dữ liệu: Hết hàng, trung mã, báo cáo đã đóng (map 409 Confict) </smary>
-public sealed class ConfictException(string message) : Exception(message);
+/// <summary> Xung đột dữ liệu: Hết hàng, trung mã, báo cáo đã đóng (map 409 Confict) </summary>
+public sealed class ConflictException(string message) : Exception(message);

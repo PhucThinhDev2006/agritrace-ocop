@@ -11,7 +11,7 @@ public enum CertificationType
     Haccp = 6
 }
 
-/// <sumary> Trạng thái kiểm duyệt sản phẩm trên sàn. </sumary>
+/// <summary> Trạng thái kiểm duyệt sản phẩm trên sàn. </summary>
 public enum ProductStatus
 {
     PendingReview = 0, // Chờ Moderator duyệt
@@ -19,7 +19,7 @@ public enum ProductStatus
     Suspended = 2 // Bị tạm ẩn do vi phạm
 }
 
-/// <sumary> Vòng đời trạng thái thanh toán đơn hàng. </sumary>
+/// <summary> Vòng đời trạng thái thanh toán đơn hàng. </summary>
 public enum OrderStatus
 {
     PendingPayment = 0, // Đang giữ chỗ chờ thanh toán (hạn 15 phút)
@@ -29,7 +29,7 @@ public enum OrderStatus
     Cancelled = 4 // Đã hủy hoàn kho
 }
 
-/// <sumary> Trạng thái xử lý báo cáo vi phạm. </sumary>
+/// <summary> Trạng thái xử lý báo cáo vi phạm. </summary>
 public enum ReportStatus
 {
     Open = 0, // Mới gửi, chờ Monderator xử lý
@@ -37,10 +37,10 @@ public enum ReportStatus
     Dismissed = 2 // Bác bỏ báo cáo
 }
 
-/// <sumary> Đối tượng bị báo cáo vi phạm. </sumary>
+/// <summary> Đối tượng bị báo cáo vi phạm. </summary>
 public enum ReportTargetType
 {
     Product = 0,
-    HavestBatch = 1,
-    Coopearative = 2
+    HarvestBatch = 1,
+    Cooperative = 2
 }
