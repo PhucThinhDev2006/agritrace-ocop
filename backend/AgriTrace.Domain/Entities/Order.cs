@@ -15,11 +15,12 @@ public class Order
     public DateTime PaymentDeadlineUtc {get; private set;}
     public string? CancelReason {get; private set;}
     public DateTime CreatedAt {get; private set;}
+    public string? IdempotencyKey {get; private set;}
 
     /// <summary> Chỉ cho đọc danh sách mặt hàng từ bên ngoài </summary>
     public IReadOnlyCollection<OrderItem> Items => _items.AsReadOnly();
     private Order() {}
-    public static Order Create(Guid buyerUserId, string shippingAddress, string receiverPhone, DateTime utcNow)
+    public static Order Create(Guid buyerUserId, string shippingAddress, string receiverPhone, DateTime utcNow, string? idempotencyKey = null)
     {
         if (buyerUserId == Guid.Empty)
         {
@@ -35,7 +36,8 @@ public class Order
             Status = OrderStatus.PendingPayment,
             TotalAmount = 0m,
             CreatedAt = utcNow,
-            PaymentDeadlineUtc = utcNow.AddMinutes(15)
+            PaymentDeadlineUtc = utcNow.AddMinutes(15),
+            IdempotencyKey = string.IsNullOrWhiteSpace(idempotencyKey)? null : idempotencyKey.Trim()
         };
     }
     public void AddItem(OrderItem item)
