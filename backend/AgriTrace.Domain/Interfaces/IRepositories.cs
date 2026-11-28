@@ -42,7 +42,7 @@ public interface IOrderRepository
 
 public interface IViolationReportRepository
 {
-    Task<ViolationReport> GetByIdAsync(Guid id, CancellationToken ct = default);
+    Task<ViolationReport?> GetByIdAsync(Guid id, CancellationToken ct = default);
     Task<IReadOnlyList<ViolationReport>> GetOpenReportsAsync(CancellationToken ct = default);
     Task AddAsync(ViolationReport report, CancellationToken ct = default);
 }
