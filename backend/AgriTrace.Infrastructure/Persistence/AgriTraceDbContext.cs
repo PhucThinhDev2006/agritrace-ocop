@@ -1,8 +1,10 @@
 using AgriTrace.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using AgriTrace.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 namespace AgriTrace.Infrastructure.Persistence;
 
-public class AgriTraceDbContext(DbContextOptions<AgriTraceDbContext> options) : DbContext(options)
+public class AgriTraceDbContext(DbContextOptions<AgriTraceDbContext> options) : IdentityDbContext<AppUser, AppRole, Guid>(options)
 {
     public DbSet<Region> Regions => Set<Region>();
     public DbSet<Province> Provinces => Set<Province>();
@@ -14,6 +16,7 @@ public class AgriTraceDbContext(DbContextOptions<AgriTraceDbContext> options) : 
     public DbSet<Order> Orders => Set<Order>();
     public DbSet<OrderItem> OrderItems => Set<OrderItem>();
     public DbSet<ViolationReport> ViolationReports => Set<ViolationReport>();
+    public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
