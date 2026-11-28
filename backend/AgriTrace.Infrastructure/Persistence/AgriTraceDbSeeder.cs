@@ -202,7 +202,7 @@ public static class AgriTraceDbSeeder
             await db.SaveChangesAsync(ct);
             // 2 Lô thu hoạch mẫu đã khóa QR
             // Chè Tân Cương
-            var batchTea = HarvestBatch.Create(products[0].Id, "LOT_TN_2026_001", 450m);
+            var batchTea = HarvestBatch.Create(products[0].Id, "LOT-TN-2026-001", 450m);
             batchTea.AddFarmingLog(FarmingLog.Create(batchTea.Id, new DateTime(2026, 3, 1, 0, 0, 0, DateTimeKind.Utc), "Bón phân hữu cơ", "Bón phân vi sinh đầu vụ xuân", 0, "Phân hữu cơ vi sinh Sông Gianh"));
             batchTea.AddFarmingLog(FarmingLog.Create(batchTea.Id, new DateTime(2026, 4, 1, 0, 0, 0, DateTimeKind.Utc), "Phun chế phẩm sinh học", "Phòng trừ rầy xanh bằng chế phẩm thảo mộc", 14, "Chế phẩm Neem sinh học"));
             batchTea.LockAndGenerateQr(new DateTime(2026, 4, 20, 0, 0, 0, DateTimeKind.Utc), "SEED_HMAC_SIG_TEA_2026_001");
